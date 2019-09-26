@@ -114,37 +114,6 @@ public class Practica {
                     }
                      JOptionPane.showMessageDialog(null,"nota mayor"+notamayor+"\nnota menor:"+notamenor+"\ncantidad aprobados:"+cantidadaprobados+"\ncantidad desaprobados:"+cantidaddesaprobados);                    
                        break;
-                       
-                       case 2:
-                       opcion=2;
-                       JOptionPane.showMessageDialog(null,"ha escogido arreglo dos");
-                       int arreglo[]=new int[5];
-                       int numero1=0;
-                       int numero2=0;
-                       int numero3=0;
-                       int numero4=0;
-                       
-                       for(int i=0 ; i<arreglo.length -1; i++){
-                       for(int j=0 ; j<arreglo.length -1; j++){
-                       if(arreglo[j]>arreglo[j+1]){
-                       int aux = arreglo[j];
-                       arreglo[j]=arreglo[j+1];
-                       arreglo[j+1]=aux; 
-                     }
-                  }
-                   }
-
-
-for(int z=0 ; z<arreglo.length ; z++){
-System.out.println(arreglo[z]);
-}
-
-}
-
-}
-                   
-                       
-                       break;
                        default:
                       JOptionPane.showMessageDialog(null,"ingreso una opcion no valida");     
                    
