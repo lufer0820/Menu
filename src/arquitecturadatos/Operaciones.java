@@ -52,7 +52,7 @@ public class Operaciones {
     public double dividir(int num1,int num2){
      this.setNumero1(num1);
      this.setNumero2(num2);
-     return this.getNumero1()/this.getNumero2();
+     return (double)getNumero1()/this.getNumero2();
     }
     }
 
