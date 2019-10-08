@@ -13,6 +13,7 @@ public class Menu {
        numerodos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor para la variable numero 2:"));
        do{
        try{
+           //menu principal
        opcion=Integer.parseInt(JOptionPane.showInputDialog("ingrese un valor de las siguientes opciones"
                +"\n 1 mostrar calculadora"
                +"\n 2 mostrar arreglo"
@@ -24,7 +25,7 @@ public class Menu {
           JOptionPane.showMessageDialog(null,"Debe ingresar solo valores ");
        }
        switch(opcion){
-               //menu principal
+               //submenu 
                case 1:
                JOptionPane.showMessageDialog(null,"mostrar calculadora");
                 try{
@@ -78,6 +79,7 @@ public class Menu {
                  }
                        
                case 2:
+                   //menu de arreglo
                opcion=2;  
                opcion=Integer.parseInt(JOptionPane.showInputDialog("escoja el ejercio de arreglo"
                     + "\n 1. arreglo notas."
@@ -135,6 +137,7 @@ JOptionPane.showMessageDialog(null,"nota mayor"+notamayor+"\nnota menor:"+notame
                 }  
                break;
                case 3:
+                   //menu de matriz
                opcion=3;    
                JOptionPane.showMessageDialog(null,"mostrar operacion matrices");
                opcion=Integer.parseInt(JOptionPane.showInputDialog("escoja el ejercio de matriz"
@@ -172,6 +175,7 @@ JOptionPane.showMessageDialog(null,"nota mayor"+notamayor+"\nnota menor:"+notame
                
                break;
                case 5:
+                   //operacion de ordenamiento de burbuja
                opcion=5;    
                JOptionPane.showMessageDialog(null, "mostrar operación de ordenamiento");
                Scanner tecla = new Scanner(System.in);
