@@ -1,6 +1,7 @@
 
 package arquitecturadatos;
 import javax.swing.JOptionPane;
+import java.util.Scanner;
 public class Menu {
     public static void main(String[] args) {
        int opcion=0;
@@ -143,19 +144,68 @@ JOptionPane.showMessageDialog(null,"nota mayor"+notamayor+"\nnota menor:"+notame
                switch(opcion){
                        case 1:
                        opcion=1;
-                       
-                       case 2:
-                       opcion=2;
+                String acu =  " " ;
+		int i = 0 , j = 0 ;
+		int matriz [] [];
+		matriz =new int[5][5];
+		for(i=0;i<5;i++){
+		for(j=0;j<5;j++){
+		matriz[i][j]=j+i;
+		if(j==4){
+		acu=""+acu+""+ matriz[i][j]+"\n" ;
+		} else{
+	        acu = " " + acu + "      " + matriz [i] [j];
+		}		
+		}
+		} JOptionPane.showMessageDialog(null,"Matriz 5x5 "+"\n"+ acu); 
+                break;
+                case 2:
+                opcion=2;
+                JOptionPane.showMessageDialog(null,"salir");
+                default:
+                JOptionPane.showMessageDialog(null,"ingreso una opcion no valida");    
                }            
                break; 
                case 4:
                opcion=4;    
                JOptionPane.showMessageDialog(null, "mostrar operación de set y get");
+               
                break;
                case 5:
                opcion=5;    
                JOptionPane.showMessageDialog(null, "mostrar operación de ordenamiento");
-               
+               Scanner tecla = new Scanner(System.in);
+               Scanner key = new Scanner(System.in);
+               int tam;
+               JOptionPane.showMessageDialog(null,"ingresar tamaño:");
+               tam = tecla.nextInt();
+               String[] A= new String[tam]; 
+               for(int i=0; i<A.length; i++){
+               JOptionPane.showMessageDialog(null,"ingrese texto:"+i);
+            A[i] = key.nextLine();}
+       
+        // Imprimimos el array A desordenado. 
+         JOptionPane.showMessageDialog(null,"array A desordenado:");      
+        for(int i=0; i<A.length; i++){
+            JOptionPane.showMessageDialog(null," A[" + i + "] = " + A[i] ); }
+       
+        // Inicio del metodo de ordenamiento de la Burbuja
+        String aux; 
+        for(int i=1; i<=A.length; i++) {  
+            for(int j=0; j<A.length-i; j++) { 
+                if( A[j].compareTo( A[j+1] ) > 0 ) { 
+                    aux   = A[j]; 
+                    A[j]  = A[j+1]; 
+                    A[j+1]= aux; 
+                }    
+            } 
+        }
+        // Fin del metodo de ordenamiento de la Burbuja
+        // Imprimimos el array A ordenado.
+        JOptionPane.showMessageDialog(null,"\n array A ordenado:"); 
+        for(int i=0; i<A.length; i++){
+            JOptionPane.showMessageDialog(null," A[" + i + "] = " + A[i] );
+        }                         
                break;
                default:   
                JOptionPane.showMessageDialog(null,"ingreso una opcion no valida");
