@@ -12,20 +12,20 @@ public class Practica {
    public static void main(String[] args) {
        //variable local
        int opcion=0;
-       String continuar="No";
        int numerouno;
        int numerodos;
-       
+       int resultado;
        numerouno = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor para la variable numero 1:"));
        numerodos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor para la variable numero 2:"));
        
-       int resultado=0;
        try{
        opcion=Integer.parseInt(JOptionPane.showInputDialog("ingrese un valor de las siguientes opciones"
                +"\n 1 mostrar calculadora"
-               +"\n 2 mostrar arreglos"
-               +"\n 3 mostrar matrices"
-               +"\n 4 salir"));
+               +"\n 2 mostrar arreglo"
+               +"\n 3 mostrar matriz"
+               +"\n 4 mostrar set y get"
+               +"\n 5 mostrar ordenamiento "
+               +"\n 6 salir"));
        }catch(Exception ex){
           JOptionPane.showMessageDialog(null,"Debe ingresar solo valores ");
        }
@@ -75,6 +75,7 @@ public class Practica {
                        JOptionPane.showMessageDialog(null,"la division es:"+resultado);
                        break;
                        default:
+                        opcion=5;   
                        JOptionPane.showMessageDialog(null,"ingreso una opcion no valida");    
                         
                    } 
@@ -87,8 +88,7 @@ public class Practica {
                
                opcion=Integer.parseInt(JOptionPane.showInputDialog("escoja el ejercio de arreglo"
                     + "\n 1. arreglo notas."
-                    + "\n 2. arreglo dos"
-                    + "\n finalizar"));
+                    + "\n 2.finalizar"));
                 switch(opcion){
                        case 1:
                        opcion=1;

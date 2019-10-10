@@ -4,13 +4,13 @@ import javax.swing.JOptionPane;
 import java.util.Scanner;
 public class Menu {
     public static void main(String[] args) {
+        Operaciones operar = new Operaciones();
        int opcion=0;
-       int numerouno;
-       int numerodos;
-       int resultado;
+     int numero1=3;
+     int numero2=11;
+    double resultado;
        
-       numerouno = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor para la variable numero 1:"));
-       numerodos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor para la variable numero 2:"));
+       
        do{
        try{
            //menu principal
@@ -18,9 +18,8 @@ public class Menu {
                +"\n 1 mostrar calculadora"
                +"\n 2 mostrar arreglo"
                +"\n 3 mostrar matriz"
-               +"\n 4 mostrar set y get"
-               +"\n 5 mostrar ordenamiento "
-               +"\n 6 salir"));
+               +"\n 4 mostrar ordenamiento "
+               +"\n 5 salir"));
        }catch(Exception ex){
           JOptionPane.showMessageDialog(null,"Debe ingresar solo valores ");
        }
@@ -33,43 +32,39 @@ public class Menu {
                +"\n 1 operaciones basicas"
                +"\n 2 ejercicios de arreglo"
                +"\n 3 ejercicio de matrices"
-               +"\n 4 ejercicio de set y get"
-               +"\n 5 ejercicio de ordenamiento"        
-               +"\n 6 salir"));
+               +"\n 4 ejercicio de ordenamiento"        
+               +"\n 5 salir"));
                }catch(Exception ex){
                JOptionPane.showMessageDialog(null,"Debe ingresar solo valores ");
                }
                //menu de operaciones basicas
+               //aplicando set y get  
                switch(opcion){
                    case 1:
-                    JOptionPane.showMessageDialog(null,"realizar operacione bsicas");
+                    JOptionPane.showMessageDialog(null,"realizar operacione basicas");
                     opcion=Integer.parseInt(JOptionPane.showInputDialog("escoja la operacion a realizar"
                     +"\n 1 realizar suma"
                     +"\n 2 realizar resta"
                     +"\n 3 realizar multiplicacion"
                     +"\n 4 realizar division"
                     +"\n 5 volver")); 
-                    //ejecuta la operacion
+                    //ejecuta la operacion con los get y set
                    switch(opcion){
                        case 1:
                        opcion=1;
-                       resultado=numerouno+numerodos;
-                       JOptionPane.showMessageDialog(null,"la suma es:"+resultado);
+                       JOptionPane.showMessageDialog(null,operar.sumar(numero1,numero2));
                        break; 
                        case 2:
                        opcion=2;
-                       resultado=numerouno-numerodos;
-                       JOptionPane.showMessageDialog(null,"la resta es:"+resultado);
+                       JOptionPane.showMessageDialog(null,operar.resta(numero1,numero2));
                        break;
                        case 3:
                        opcion=3;
-                       resultado=numerouno*numerodos;
-                       JOptionPane.showMessageDialog(null,"la multiplicacion es:"+resultado);
+                        JOptionPane.showMessageDialog(null,operar.multiplicar(numero1,numero2));
                        break;
                        case 4:
                        opcion=4;
-                       resultado=numerouno/numerodos;
-                       JOptionPane.showMessageDialog(null,"la division es:"+resultado);
+                       JOptionPane.showMessageDialog(null,operar.dividir(numero1,numero2));
                        break;
                        default:
                         opcion=5;   
@@ -167,16 +162,10 @@ JOptionPane.showMessageDialog(null,"nota mayor"+notamayor+"\nnota menor:"+notame
                 JOptionPane.showMessageDialog(null,"salir");
                 default:
                 JOptionPane.showMessageDialog(null,"ingreso una opcion no valida");    
-               }            
-               break; 
+               }         
                case 4:
-               opcion=4;    
-               JOptionPane.showMessageDialog(null, "mostrar operación de set y get");
-               
-               break;
-               case 5:
                    //operacion de ordenamiento de burbuja
-               opcion=5;    
+               opcion=4;    
                JOptionPane.showMessageDialog(null, "mostrar operación de ordenamiento");
                Scanner tecla = new Scanner(System.in);
                Scanner key = new Scanner(System.in);
