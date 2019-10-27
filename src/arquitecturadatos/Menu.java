@@ -1,10 +1,14 @@
 
 package arquitecturadatos;
+import ListasSimples.EjemploListas;
+import java.util.List;
 import javax.swing.JOptionPane;
-import java.util.Scanner;
+
 public class Menu {
     public static void main(String[] args) {
         Operaciones operar = new Operaciones();
+        
+        
        int opcion=0;
      int numero1=3;
      int numero2=11;
@@ -19,7 +23,9 @@ public class Menu {
                +"\n 2 mostrar arreglo"
                +"\n 3 mostrar matriz"
                +"\n 4 mostrar ordenamiento "
-               +"\n 5 salir"));
+               +"\n 5 mostrar listas "
+               +"\n 6 mostrar pilas "
+               +"\n 7 salir"));
        }catch(Exception ex){
           JOptionPane.showMessageDialog(null,"Debe ingresar solo valores ");
        }
@@ -32,8 +38,10 @@ public class Menu {
                +"\n 1 operaciones basicas"
                +"\n 2 ejercicios de arreglo"
                +"\n 3 ejercicio de matrices"
-               +"\n 4 ejercicio de ordenamiento"        
-               +"\n 5 salir"));
+               +"\n 4 ejercicio de ordenamiento"
+               +"\n 5 ejercicio listas "
+               +"\n 6 ejercicio pilas "        
+               +"\n 7 salir"));
                }catch(Exception ex){
                JOptionPane.showMessageDialog(null,"Debe ingresar solo valores ");
                }
@@ -164,50 +172,147 @@ JOptionPane.showMessageDialog(null,"nota mayor"+notamayor+"\nnota menor:"+notame
                 JOptionPane.showMessageDialog(null,"ingreso una opcion no valida");    
                }         
                case 4:
-                   //operacion de ordenamiento de burbuja
-               opcion=4;    
-               JOptionPane.showMessageDialog(null, "mostrar operación de ordenamiento");
-               Scanner tecla = new Scanner(System.in);
-               Scanner key = new Scanner(System.in);
-               int tam;
-               JOptionPane.showMessageDialog(null,"ingresar tamaño:");
-               tam = tecla.nextInt();
-               String[] A= new String[tam]; 
-               for(int i=0; i<A.length; i++){
-               JOptionPane.showMessageDialog(null,"ingrese texto:"+i);
-            A[i] = key.nextLine();}
-       
-        // Imprimimos el array A desordenado. 
-         JOptionPane.showMessageDialog(null,"array A desordenado:");      
-        for(int i=0; i<A.length; i++){
-            JOptionPane.showMessageDialog(null," A[" + i + "] = " + A[i] ); }
-       
-        // Inicio del metodo de ordenamiento de la Burbuja
-        String aux; 
-        for(int i=1; i<=A.length; i++) {  
-            for(int j=0; j<A.length-i; j++) { 
-                if( A[j].compareTo( A[j+1] ) > 0 ) { 
-                    aux   = A[j]; 
-                    A[j]  = A[j+1]; 
-                    A[j+1]= aux; 
-                }    
-            } 
-        }
-        // Fin del metodo de ordenamiento de la Burbuja
-        // Imprimimos el array A ordenado.
-        JOptionPane.showMessageDialog(null,"\n array A ordenado:"); 
-        for(int i=0; i<A.length; i++){
-            JOptionPane.showMessageDialog(null," A[" + i + "] = " + A[i] );
-        }                         
-               break;
+                   //EJERCICIOS ORDENAMIENTO
+               opcion=4; 
+               JOptionPane.showMessageDialog(null,"Bienvenido a los ejercicios de ordenamiento");
+               opcion=Integer.parseInt(JOptionPane.showInputDialog("escoja el ordenamiento"
+                    + "\n 1. Ordenamiento Burbuja."
+                    + "\n 2. Ordenamiento Shell."  
+                    + "\n 3.finalizar"));
+                  
+            switch(opcion){
+                case 1:
+                    opcion=1;
+                    Ordenacionburbuja();
+                    break;
+                case 2:
+                    opcion=2;
+                    Ordenacionshell();
+                    break;   
+                default:
+                    JOptionPane.showMessageDialog(null, "Opción No Valida");
+                    break;
+            }
+
+               case 5:
+               opcion=5;
+               JOptionPane.showMessageDialog(null,"escogio listas");  
+               opcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese una opción valida: \n"
+                    + "\n 1. listas Simples.\n"
+                    + "\n 2. listas Dobles\n" 
+                    + "\n 3.finalizar"));
+                 switch(opcion){
+                case 1:
+                    opcion=1;
+                    EjemploListas objEjemploListas = new EjemploListas();
+                    objEjemploListas.menu();
+                    break;
+                    
+                case 2:
+                    opcion=2;
+                      
+                    break;   
+                default:
+                    JOptionPane.showMessageDialog(null, "Opción No Valida");
+                    break;
+            
+                 }
+               
+               case 6:
+               JOptionPane.showMessageDialog(null,"escogio pilas"); 
+               
+               break;    
                default:   
                JOptionPane.showMessageDialog(null,"ingreso una opcion no valida");
                break;
-              
+              }
                        
-   }   
+       
         
      }while(opcion>0 && opcion <=5);   
+
+   
+    }
+//Inicio metodos de ordenamiento
+    private static void Ordenacionburbuja() {
+        System.out.print(" !! Bienvenidos al Metodo Ordenacion Burbuja: !!\n\n");
+            int lista[] = {3,2,1};
+                    System.out.print("Lista desordenada: ");
+                    imprimirLista(lista);
+                    ordenar(lista);
+
+                    System.out.print("Lista ordenada:    ");
+                    imprimirLista(lista);
+                    System.out.print("\n");
+                    
+         }
+    public static void ordenar(int [] A){
+        int i, j, aux;
+        for(i= 0; i < A.length - 1; i++){
+            for(j= 0; j < A.length - i - 1; j++){
+                if(A[j + 1] < A[j]){
+                   aux= A[j + 1];
+                   A[j+1]= A[j];
+                   A[j]= aux;
+                }
+            }
+        }
+    }
+    public static void imprimirLista(int[] arreglo){
+        for(int i = 0; i < arreglo.length;i++){
+            System.out.print(arreglo[i]+",");
+        }
+        System.out.println();
+   }
+
+    private static void Ordenacionshell() {
+     System.out.print(" !!  Bienvenidos al Metodo Ordenacion Shell: !!\n\n");
+        int lista[] = {5,4,3,2,1};
+        System.out.print("Lista desordenada: ");
+        imprimeLista(lista);
+        ordenShell(lista);
+
+        System.out.print("Lista ordenada:    ");
+        imprimeLista(lista);
+        System.out.print("\n");
+    }   
+    public static void ordenShell(int a[])
+    {
+        int intervalo, i, j, k;
+        int n= a.length;
+        intervalo = n / 2;
+        while (intervalo > 0){
+            for (i = intervalo; i < n; i++){
+                j = i - intervalo;
+                while (j >= 0){
+                    k = j + intervalo;
+                    if (a[j] <= a[k]){
+                        j = -1; // par de elementos ordenado
+                    }else{
+                        intercambiar(a, j, j+1);
+                        j -= intervalo;
+                    }
+                }
+            }
+            intervalo = intervalo / 2;
+        }
+    }
+  
+    public static void intercambiar(int []a, int i, int j)
+    {
+        int aux = a[i];
+        a[i] = a[j];
+        a[j]= aux ;
     }
     
-}
+    public static void imprimeLista(int[] arreglo){
+        for(int i = 0; i < arreglo.length;i++){
+            System.out.print(arreglo[i]+",");
+        }
+        System.out.println();
+    }
+    
+
+    }//cierre de llave menu
+    
+
