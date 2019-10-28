@@ -1,7 +1,7 @@
 
 package arquitecturadatos;
+import ListasDobles.List;
 import ListasSimples.EjemploListas;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Menu {
@@ -210,7 +210,8 @@ JOptionPane.showMessageDialog(null,"nota mayor"+notamayor+"\nnota menor:"+notame
                     
                 case 2:
                     opcion=2;
-                      
+                    List objList = new List();
+                    objList.menu();   
                     break;   
                 default:
                     JOptionPane.showMessageDialog(null, "Opción No Valida");
