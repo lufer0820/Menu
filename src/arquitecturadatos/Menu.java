@@ -9,7 +9,7 @@ public class Menu {
         Operaciones operar = new Operaciones();
         
         
-       int opcion=0;
+     int opcion=0;
      int numero1=3;
      int numero2=11;
     double resultado;
@@ -220,7 +220,94 @@ JOptionPane.showMessageDialog(null,"nota mayor"+notamayor+"\nnota menor:"+notame
                  }
                
                case 6:
+               //menu pilas
                JOptionPane.showMessageDialog(null,"escogio pilas"); 
+               opcion=Integer.parseInt(JOptionPane.showInputDialog("escoja el ejercio de matriz"
+                    + "\n 1. Lista Uno." 
+                    + "\n 2. Lista dos."    
+                    + "\n 3.finalizar"));
+               switch(opcion){
+                   case 1:
+                   opcion=1;
+                   Stack pila =new Stack();
+                   pila.push(50);
+                   pila.push("String");
+                   pila.push(17);
+                   pila.push("Palabra");
+                   
+                 JOptionPane.showMessageDialog(null,"El ultimo elemento en la pila es:"+pila.peek());
+                 while(pila.empty()==false){
+                 JOptionPane.showMessageDialog(null,pila.pop()); 
+                   }
+                  break;
+                  
+                   case 2:
+                  opcion=2;
+                 Stack pilados =new Stack();
+                 int dato;
+                 boolean uso=true;
+                 while(uso){
+                     opcion=Integer.parseInt(JOptionPane.showInputDialog("escoja el ejercio de matriz"
+                    + "\n 1. Apilar" 
+                    + "\n 2. Desapilar"
+                    + "\n 3. Visualizar datos"
+                    + "\n 4. Visualizar cima"
+                    + "\n 5. Buscar"
+                    + "\n 6. Numero de datos"
+                    + "\n 7. Vaciar pila"         
+                    + "\n 8. finalizar"));
+                     
+                 switch(opcion){
+                     case 1:
+                    opcion=1;
+                    dato=Integer.parseInt(JOptionPane.showInputDialog("Introduzca el dato"));
+                    pilados.push(dato);
+                    JOptionPane.showMessageDialog(null,"contenido"+"\n"+pilados);
+                    break; 
+                    
+                     case 2:
+                     opcion=2;
+                     pilados.pop();
+                     JOptionPane.showMessageDialog(null,"contenido\n"+pilados);
+                     break;
+                     
+                     case 3:
+                     opcion=3;
+                     if(pilados.empty()){
+                      JOptionPane.showMessageDialog(null,"PILA VACIA","",JOptionPane.WARNING_MESSAGE);   
+                     }else{
+                      JOptionPane.showMessageDialog(null,"contenido\n"+pilados);   
+                     }
+                     break;
+                     
+                     case 4:
+                     opcion=4;
+                     JOptionPane.showMessageDialog(null,"CIMA\n"+pilados.peek());
+                     break;
+                     
+                     case 5:
+                     opcion=5;
+                     dato=Integer.parseInt(JOptionPane.showInputDialog("Introduzca el dato a buscar"));
+                    if(!pilados.contains(dato)){
+                      JOptionPane.showMessageDialog(null,"DATO NO ENCONTRADO","",JOptionPane.ERROR_MESSAGE);
+                    }
+                    break;
+                    
+                     case 6:
+                     opcion=6;
+                     JOptionPane.showMessageDialog(null,"NÚMEROS DE DATOS\n"+pilados.size());
+                     break;
+                     
+                     case 7:
+                     opcion=7;
+                     pilados.clear();
+                     break;
+                     
+                     case 8:
+                     opcion=8;
+                     uso=false;
+                 }   
+                 } 
                
                break;    
                default:   
