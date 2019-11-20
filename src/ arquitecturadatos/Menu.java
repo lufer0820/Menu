@@ -8,13 +8,11 @@ public class Menu {
     public static void main(String[] args) {
         Operaciones operar = new Operaciones();
         
-        
      int opcion=0;
      int numero1=3;
      int numero2=11;
     double resultado;
-       
-       
+ 
        do{
        try{
            //menu principal
@@ -136,7 +134,6 @@ JOptionPane.showMessageDialog(null,"nota mayor"+notamayor+"\nnota menor:"+notame
                        break;
                        default:
                       JOptionPane.showMessageDialog(null,"ingreso una opcion no valida");     
-                   
                 }  
                break;
                case 3:
